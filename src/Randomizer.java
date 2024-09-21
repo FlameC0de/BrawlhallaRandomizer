@@ -2,6 +2,7 @@ import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("ALL")
 //Randomizer
 public class Randomizer {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Randomizer {
         Image scaledImage = originalImage.getScaledInstance(250, 250, Image.SCALE_SMOOTH);
         //Skalkiertes Brawlhalla Logo verpacken als neues ImageIcon
         ImageIcon BrawlhallaS = new ImageIcon(scaledImage);
+        int repeat;
 
         //Brawlhalla Legenden Image Icons
         ImageIcon Ada = new ImageIcon(".idea/Bilder/Legenden/Ada.png");
@@ -280,11 +282,17 @@ public class Randomizer {
                     JOptionPane.showMessageDialog(null, "Loki", null, JOptionPane.INFORMATION_MESSAGE, Loki);
                     break;
             }
+            repeat = JOptionPane.showConfirmDialog(null,
+                    "Nochmal?",
+                    "Repeat Fenster wup wup",
+                    JOptionPane.YES_NO_OPTION);
+            if(repeat == JOptionPane.YES_OPTION){
+                Randomizer.main(args);
+            } else {
+                JOptionPane.showMessageDialog(null,"Dann nicht",null,JOptionPane.INFORMATION_MESSAGE,CAT);
+            }
         }else{
             JOptionPane.showMessageDialog(null,"Dann nicht",null,JOptionPane.INFORMATION_MESSAGE,CAT);
         }
-
-
-
     }
 }
